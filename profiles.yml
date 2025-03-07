@@ -1,0 +1,60 @@
+custload:
+  outputs:
+    dev:
+      dbname: postgres
+      host: localhost
+      pass: Infy@123
+      port: 5432
+      schema: DBT
+      threads: 1
+      type: postgres
+      user: postgres
+  target: dev
+default:
+  outputs:
+    dev:
+      dbname: postgres
+      host: localhost
+      pass: Infy@123
+      port: 5432
+      schema: DBT
+      threads: 2
+      type: postgres
+      user: postgres
+  target: dev
+demo:
+  outputs:
+    dev:
+      dbname: postgres
+      host: host.docker.internal
+      pass: Infy@123
+      port: 5432
+      schema: dbt_demo
+      threads: 2
+      type: postgres
+      user: postgres
+  target: dev
+demospark:
+  outputs:
+    dev:
+      database: default
+      host: 10.255.255.254
+      http_port: 8080
+      method: http
+      port: 7077
+      schema: default
+      threads: 1
+      type: spark
+  target: dev
+demospark1:
+  outputs:
+    dev:
+      config:
+        spark.driver.extraJavaOptions: -XX:+UseG1GC -Dio.netty.tryReflectionSetAccessible=true
+        spark.executor.extraJavaOptions: -XX:+UseG1GC -Dio.netty.tryReflectionSetAccessible=true
+      host: NA
+      method: session
+      schema: default
+      threads: 1
+      type: spark
+  target: dev
